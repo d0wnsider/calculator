@@ -62,7 +62,7 @@ body {
     align-items: flex-end;
 }
 
-.numberContainer {
+.number-container {
     gap: 7px 10px;
     background-color: transparent;
     display: grid;

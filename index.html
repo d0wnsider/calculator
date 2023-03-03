@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="calculator.css">
+    <script src="calculator.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <div class="display">0</div>
-        <div class="numberContainer">
+        <div class="display" value="0">0</div>
+        <div class="number-container">
             <button type="button" id="zero" class="btn digits" value="0">0</button>
             <button type="button" id="one" class="btn digits" value="1">1</button>
             <button type="button" id ="two" class="btn digits" value="2">2</button>
@@ -22,7 +23,7 @@
             <button type="button" id ="eight" class="btn digits" value="8">8</button>
             <button type="button" id ="nine" class="btn digits" value="9">9</button>
             <button type="button" id ="equals" class="btn eq" value="=">=</button>
-            <button type="button" id ="divide" class="btn    operators" value="/">/</button>
+            <button type="button" id ="divide" class="btn operators" value="/">/</button>
             <button type="button" id ="multiply" class="btn operators" value="*">*</button>
             <button type="button" id ="subtract" class="btn operators" value="-">-</button>
             <button type="button" id ="add" class="btn operators" value="+">+</button>
