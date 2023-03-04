@@ -1,21 +1,22 @@
 let display = document.getElementById('display');
 let displayResult = document.getElementById('display-result');
-const operateSelect = document.querySelector('#equals');
-const addSelect = document.querySelector('#add');
+let chosenOperator = null;
+// const operateSelect = document.querySelector('#equals');
+// const addSelect = document.querySelector('#add');
 const subtractSelect = document.querySelector('#subtract');
-const multiplySelect = document.querySelector('#multiply');
-const divideSelect = document.querySelector('#divide');
+// const multiplySelect = document.querySelector('#multiply');
+// const divideSelect = document.querySelector('#divide');
 const clear = document.querySelector('#clear');
 const zero = document.querySelector('#zero');
-const one = document.querySelector('#one');
-const two = document.querySelector('#two');
-const three = document.querySelector('#three');
-const four = document.querySelector('#four');
-const five = document.querySelector('#five');
-const six = document.querySelector('#six');
-const seven = document.querySelector('#seven');
-const eight = document.querySelector('#eight');
-const nine = document.querySelector('#nine');
+// const one = document.querySelector('#one');
+// const two = document.querySelector('#two');
+// const three = document.querySelector('#three');
+// const four = document.querySelector('#four');
+// const five = document.querySelector('#five');
+// const six = document.querySelector('#six');
+// const seven = document.querySelector('#seven');
+// const eight = document.querySelector('#eight');
+// const nine = document.querySelector('#nine');
 const numberContainer = document.querySelector('.number-container');
 const remove = new AbortController(); // Disabling the effect of listener
 // Operations 
@@ -41,6 +42,67 @@ function operate(operator,a,b) {
 // Event listener on container rather than per button
 // Event delegation!
 numberContainer.addEventListener('click', (e) => {
+    // displaying the result
+    if (e.target.matches('#equals')) {
+        if (chosenOperator === 'add'){
+            display.textContent = operate(chosenOperator,Number(displayResult.textContent),Number(display.textContent));
+        }
+        if (chosenOperator === 'subtract'){
+            display.textContent = operate(chosenOperator,Number(displayResult.textContent),Number(display.textContent));
+        }
+        if (chosenOperator === 'multiply'){
+            display.textContent = operate(chosenOperator,Number(displayResult.textContent),Number(display.textContent));
+        }
+        if (chosenOperator === 'divide'){
+            display.textContent = operate(chosenOperator,Number(displayResult.textContent),Number(display.textContent));
+        }
+    }
+
+    if (e.target.matches('#add')) {
+        if (display.textContent === '0') {
+            display.textContent += display.textContent;
+        }
+        displayResult.textContent = display.textContent;
+        if (!display.textContent === '0') {
+            display.textContent += displayResult;
+        }
+        display.textContent = 0;
+        chosenOperator = 'add';
+    }
+    if (e.target.matches('#subtract')) {
+        if (display.textContent === '0') {
+            display.textContent = display.textContent;
+        }
+        displayResult.textContent = display.textContent;
+        if (!display.textContent === '0') {
+            display.textContent += displayResult;
+        }
+        display.textContent = 0;
+        chosenOperator = 'subtract';
+    }
+    if (e.target.matches('#multiply')) {
+        if (display.textContent === '0') {
+            display.textContent = display.textContent;
+        }
+        displayResult.textContent = display.textContent;
+        if (!display.textContent === '0') {
+            display.textContent += displayResult;
+        }
+        display.textContent = 0;
+        chosenOperator = 'multiply';
+    }
+    if (e.target.matches('#divide')) {
+        if (display.textContent === '0') {
+            display.textContent = display.textContent;
+        }
+        displayResult.textContent = display.textContent;
+        if (!display.textContent === '0') {
+            display.textContent += displayResult;
+        }
+        display.textContent = 0;
+        chosenOperator = 'divide';
+    }
+
     if (e.target.matches('#one')) {
         if (display.textContent === '0') {
             display.textContent = 1;
@@ -48,7 +110,7 @@ numberContainer.addEventListener('click', (e) => {
         else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 1;
         }
-        else {
+        if (display.textContent.length > 12) {
             remove.abort;
         }
     }
