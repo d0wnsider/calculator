@@ -1,4 +1,5 @@
 let display = document.getElementById('display');
+let displayResult = document.getElementById('display-result');
 const operateSelect = document.querySelector('#equals');
 const addSelect = document.querySelector('#add');
 const subtractSelect = document.querySelector('#subtract');
@@ -16,7 +17,7 @@ const seven = document.querySelector('#seven');
 const eight = document.querySelector('#eight');
 const nine = document.querySelector('#nine');
 const numberContainer = document.querySelector('.number-container');
-const remove = new AbortController();
+const remove = new AbortController(); // Disabling the effect of listener
 // Operations 
 const add = (a,b) => a + b;
 const subtract = (a,b) => a - b;
@@ -44,7 +45,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 1;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 1;
         }
         else {
@@ -55,7 +56,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 2;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 2;
         }
         else {
@@ -66,7 +67,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 3;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 3;
         }
         else {
@@ -77,7 +78,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 4;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 4;
         }
         else {
@@ -88,7 +89,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 5;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 5;
         }
         else {
@@ -99,7 +100,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 6;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 6;
         }
         else {
@@ -110,7 +111,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 7;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 7;
         }
         else {
@@ -121,7 +122,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 8;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 8;
         }
         else {
@@ -132,7 +133,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 9;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 9;
         }
         else {
@@ -143,7 +144,7 @@ numberContainer.addEventListener('click', (e) => {
         if (display.textContent === '0') {
             display.textContent = 0;
         }
-        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+        else if (display.textContent.length < 12 && display.textContent.length > 0) {
             display.textContent += 0;
         }
         else {
