@@ -1,5 +1,5 @@
-const display = document.querySelector('display');
-const operateSelect = document.querySelector('equals');
+let display = document.getElementById('display');
+const operateSelect = document.querySelector('#equals');
 const addSelect = document.querySelector('#add');
 const subtractSelect = document.querySelector('#subtract');
 const multiplySelect = document.querySelector('#multiply');
@@ -15,12 +15,14 @@ const six = document.querySelector('#six');
 const seven = document.querySelector('#seven');
 const eight = document.querySelector('#eight');
 const nine = document.querySelector('#nine');
-// operations 
+const numberContainer = document.querySelector('.number-container');
+const remove = new AbortController();
+// Operations 
 const add = (a,b) => a + b;
 const subtract = (a,b) => a - b;
 const multiply = (a,b) => a * b;
 const divide = (a,b) => a / b;
-// calculation
+// Calculation
 function operate(operator,a,b) {
     if (operator === 'add') {
         return add(a,b);
@@ -35,8 +37,117 @@ function operate(operator,a,b) {
         return divide(a,b);
     }
 };
-
-console.log(operate('add',1,2));
-console.log(operate('subtract',1,2));
-console.log(operate('multiply',1,2));
-console.log(operate('divide',1,2));
+// Event listener on container rather than per button
+// Event delegation!
+numberContainer.addEventListener('click', (e) => {
+    if (e.target.matches('#one')) {
+        if (display.textContent === '0') {
+            display.textContent = 1;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 1;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#two')) {
+        if (display.textContent === '0') {
+            display.textContent = 2;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 2;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#three')) {
+        if (display.textContent === '0') {
+            display.textContent = 3;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 3;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#four')) {
+        if (display.textContent === '0') {
+            display.textContent = 4;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 4;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#five')) {
+        if (display.textContent === '0') {
+            display.textContent = 5;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 5;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#six')) {
+        if (display.textContent === '0') {
+            display.textContent = 6;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 6;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#seven')) {
+        if (display.textContent === '0') {
+            display.textContent = 7;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 7;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#eight')) {
+        if (display.textContent === '0') {
+            display.textContent = 8;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 8;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#nine')) {
+        if (display.textContent === '0') {
+            display.textContent = 9;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 9;
+        }
+        else {
+            remove.abort;
+        }
+    }
+    if (e.target.matches('#zero')) {
+        if (display.textContent === '0') {
+            display.textContent = 0;
+        }
+        else if (display.textContent.length < 13 && display.textContent.length > 0) {
+            display.textContent += 0;
+        }
+        else {
+            remove.abort;
+        }
+    }
+});
