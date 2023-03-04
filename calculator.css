@@ -38,10 +38,7 @@ body {
     background-color: rgba(100, 100, 250, .8);
     text-shadow: none;
     border: 0px brown;
-<<<<<<< HEAD
     cursor: pointer;
-=======
->>>>>>> 8b41275130b4af5434e322b0b5adad5f8dce1369
 }
 
 .container {
@@ -53,24 +50,16 @@ body {
     box-shadow: 15px 15px 20px 10px rgba(0, 0, 100, .7);
 }
 
-<<<<<<< HEAD
 #display-container {
-=======
-.display {
->>>>>>> 8b41275130b4af5434e322b0b5adad5f8dce1369
     font-size: 30px;
     color: rgba(200, 200, 200, .8);
     padding: 5px 10px;
     height: 80px;
-<<<<<<< HEAD
     gap: 5px;
-=======
->>>>>>> 8b41275130b4af5434e322b0b5adad5f8dce1369
     border: 2px brown solid;
     margin-bottom: 20px;
     background-color: rgba(0, 0, 150, 0.8);
     display: flex;
-<<<<<<< HEAD
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-evenly;
@@ -82,13 +71,6 @@ body {
 }
 
 .number-container {
-=======
-    flex-direction: row-reverse;
-    align-items: flex-end;
-}
-
-.numberContainer {
->>>>>>> 8b41275130b4af5434e322b0b5adad5f8dce1369
     gap: 7px 10px;
     background-color: transparent;
     display: grid;
