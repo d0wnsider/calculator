@@ -32,6 +32,7 @@ function display2(a) {
 function clear() {
     dNum = 0;
     rNum = 0;
+    result = '';
     textNum = '';
     chosenOperator = '';
     operand1.textContent = '';
@@ -67,19 +68,19 @@ numberContainer.addEventListener('click', (e) => {
     } if (target.matches('#equals')) {
         rNum = Number(textNum);
         result = operate(chosenOperator,dNum,rNum);
-        operand2.textContent += rNum; // adding 2nd number to 2nd display
+        operand2.textContent += textNum;
         operand1.textContent = '';
         console.log(chosenOperator,dNum,rNum,result);
         display(result);
     } if (target.matches('#add')) {
         // should not evaluate more than a single pair of numbers how??? check if operator is not empty??
         if (chosenOperator !== '') {
+            operand2.textContent += textNum + ' + ';
             rNum = Number(textNum);
             result = operate(chosenOperator,dNum,rNum);
+            chosenOperator = 'add';
             operand2.textContent = result;
             dNum = result;
-            console.log(dNum)
-            chosenOperator = '';
             operand1.textContent = '';
         } else if (chosenOperator === '') {
             chosenOperator = 'add';
@@ -88,19 +89,49 @@ numberContainer.addEventListener('click', (e) => {
             operand1.textContent = '';
         }
     } if (target.matches('#subtract')) {
-        chosenOperator = 'subtract';
-        dNum = Number(textNum)
-        operand2.textContent += textNum + ' - ';
-        operand1.textContent = '';
+        if (chosenOperator !== '') {
+            operand2.textContent += textNum + ' - ';
+            rNum = Number(textNum);
+            result = operate(chosenOperator,dNum,rNum);
+            chosenOperator = 'subtract';
+            operand2.textContent = result;
+            dNum = result;
+            operand1.textContent = '';
+        } else if (chosenOperator === '') {
+            chosenOperator = 'subtract';
+            dNum = Number(textNum);
+            operand2.textContent += textNum + ' - ';
+            operand1.textContent = '';
+        }
     } if (target.matches('#multiply')) {
-        chosenOperator = 'multiply';
-        dNum = Number(textNum)
-        operand2.textContent += textNum + ' * ';
-        operand1.textContent = '';
+        if (chosenOperator !== '') {
+            operand2.textContent += textNum + ' + ';
+            rNum = Number(textNum);
+            result = operate(chosenOperator,dNum,rNum);
+            chosenOperator = 'multiply';
+            operand2.textContent = result;
+            dNum = result;
+            operand1.textContent = '';
+        } else if (chosenOperator === '') {
+            chosenOperator = 'multiply';
+            dNum = Number(textNum);
+            operand2.textContent += textNum + ' * ';
+            operand1.textContent = '';
+        }
     } if (target.matches('#divide')) {
-        chosenOperator = 'divide';
-        dNum = Number(textNum)
-        operand2.textContent += textNum + ' / ';
-        operand1.textContent = '';
+        if (chosenOperator !== '') {
+            operand2.textContent += textNum + ' / ';
+            rNum = Number(textNum);
+            result = operate(chosenOperator,dNum,rNum);
+            chosenOperator = 'divide';
+            operand2.textContent = result;
+            dNum = result;
+            operand1.textContent = '';
+        } else if (chosenOperator === '') {
+            chosenOperator = 'divide';
+            dNum = Number(textNum);
+            operand2.textContent += textNum + ' / ';
+            operand1.textContent = '';
+        }
     }   
 });
