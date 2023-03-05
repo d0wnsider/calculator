@@ -71,12 +71,15 @@ numberContainer.addEventListener('click', (e) => {
     } if (target.matches('#dot')) {
         textNum = display('.');
     } if (target.matches('#equals')) {
+        console.log('b',chosenOperator,dNum,rNum,result);
         rNum = Number(textNum);
-        result = roundUp(operate(chosenOperator,dNum,rNum));
-        operand2.textContent += textNum;
-        operand1.textContent = '';
-        console.log(chosenOperator,dNum,rNum,result);
-        display(result);
+        if (dNum && chosenOperator && rNum) {
+            result = roundUp(operate(chosenOperator,dNum,rNum));
+            operand2.textContent += textNum; // how to not add the second time?
+            operand1.textContent = '';
+            display(result);
+        }
+        console.log('a',chosenOperator,dNum,rNum,result);
     } if (target.matches('#add')) {
         // should not evaluate more than a single pair of numbers how??? check if operator is not empty??
         if (chosenOperator !== '') {
