@@ -5,6 +5,7 @@ let rNum = 0;
 let result = 0;
 let textNum = '';
 let chosenOperator = '';
+let stop = null;
 const numberContainer = document.querySelector('.number-container');
 // Operations 
 const add = (a,b) => a + b;
@@ -41,6 +42,10 @@ function clear() {
 function roundUp (num) {
     return Math.round(num * 10) / 10;
 }
+function delayedMessage() { // clearing 2 seconds of huh?
+    operand1.textContent = '';
+    clearInterval(stop);
+}
 // Event listener on container rather than per button
 // Event delegation!
 numberContainer.addEventListener('click', (e) => {
@@ -73,6 +78,10 @@ numberContainer.addEventListener('click', (e) => {
     } if (target.matches('#equals')) {
         console.log('b',chosenOperator,dNum,rNum,result);
         rNum = Number(textNum);
+        if (rNum === 0){
+            operand1.textContent = `huh?`;
+            stop = setInterval(delayedMessage,2000); 
+        }
         if (dNum && chosenOperator && rNum) {
             result = roundUp(operate(chosenOperator,dNum,rNum));
             operand2.textContent += textNum; // how to not add the second time?
