@@ -38,6 +38,9 @@ function clear() {
     operand1.textContent = '';
     operand2.textContent = '';
 }
+function roundUp (num) {
+    return Math.round(num * 10) / 10;
+}
 // Event listener on container rather than per button
 // Event delegation!
 numberContainer.addEventListener('click', (e) => {
@@ -65,9 +68,11 @@ numberContainer.addEventListener('click', (e) => {
         textNum = display(9);
     } if (target.matches('#clear')) {
         clear();
+    } if (target.matches('#dot')) {
+        textNum = display('.');
     } if (target.matches('#equals')) {
         rNum = Number(textNum);
-        result = operate(chosenOperator,dNum,rNum);
+        result = roundUp(operate(chosenOperator,dNum,rNum));
         operand2.textContent += textNum;
         operand1.textContent = '';
         console.log(chosenOperator,dNum,rNum,result);
@@ -76,24 +81,22 @@ numberContainer.addEventListener('click', (e) => {
         // should not evaluate more than a single pair of numbers how??? check if operator is not empty??
         if (chosenOperator !== '') {
             rNum = Number(textNum);
-            result = operate(chosenOperator,dNum,rNum);
+            result = roundUp(operate(chosenOperator,dNum,rNum));
             chosenOperator = 'add';
             operand2.textContent = result;
             operand2.textContent += ' + ';
             dNum = result;
             operand1.textContent = '';
-            console.log('1')
         } else if (chosenOperator === '') {
             chosenOperator = 'add';
             dNum = Number(textNum);
             operand2.textContent += textNum + ' + ';
             operand1.textContent = '';
-            console.log('2')
         }
     } if (target.matches('#subtract')) {
         if (chosenOperator !== '') {
             rNum = Number(textNum);
-            result = operate(chosenOperator,dNum,rNum);
+            result = roundUp(operate(chosenOperator,dNum,rNum));
             chosenOperator = 'subtract';
             operand2.textContent = result;
             operand2.textContent += ' - ';
@@ -108,7 +111,7 @@ numberContainer.addEventListener('click', (e) => {
     } if (target.matches('#multiply')) {
         if (chosenOperator !== '') {
             rNum = Number(textNum);
-            result = operate(chosenOperator,dNum,rNum);
+            result = roundUp(operate(chosenOperator,dNum,rNum));
             chosenOperator = 'multiply';
             operand2.textContent = result;
             operand2.textContent += ' * ';
@@ -123,7 +126,7 @@ numberContainer.addEventListener('click', (e) => {
     } if (target.matches('#divide')) {
         if (chosenOperator !== '') {
             rNum = Number(textNum);
-            result = operate(chosenOperator,dNum,rNum);
+            result = roundUp(operate(chosenOperator,dNum,rNum));
             chosenOperator = 'divide';
             operand2.textContent = result;
             operand2.textContent += ' / ';
