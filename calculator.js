@@ -75,26 +75,28 @@ numberContainer.addEventListener('click', (e) => {
     } if (target.matches('#add')) {
         // should not evaluate more than a single pair of numbers how??? check if operator is not empty??
         if (chosenOperator !== '') {
-            operand2.textContent += textNum + ' + ';
             rNum = Number(textNum);
             result = operate(chosenOperator,dNum,rNum);
             chosenOperator = 'add';
             operand2.textContent = result;
+            operand2.textContent += ' + ';
             dNum = result;
             operand1.textContent = '';
+            console.log('1')
         } else if (chosenOperator === '') {
             chosenOperator = 'add';
             dNum = Number(textNum);
             operand2.textContent += textNum + ' + ';
             operand1.textContent = '';
+            console.log('2')
         }
     } if (target.matches('#subtract')) {
         if (chosenOperator !== '') {
-            operand2.textContent += textNum + ' - ';
             rNum = Number(textNum);
             result = operate(chosenOperator,dNum,rNum);
             chosenOperator = 'subtract';
             operand2.textContent = result;
+            operand2.textContent += ' - ';
             dNum = result;
             operand1.textContent = '';
         } else if (chosenOperator === '') {
@@ -105,11 +107,11 @@ numberContainer.addEventListener('click', (e) => {
         }
     } if (target.matches('#multiply')) {
         if (chosenOperator !== '') {
-            operand2.textContent += textNum + ' + ';
             rNum = Number(textNum);
             result = operate(chosenOperator,dNum,rNum);
             chosenOperator = 'multiply';
             operand2.textContent = result;
+            operand2.textContent += ' * ';
             dNum = result;
             operand1.textContent = '';
         } else if (chosenOperator === '') {
@@ -120,11 +122,11 @@ numberContainer.addEventListener('click', (e) => {
         }
     } if (target.matches('#divide')) {
         if (chosenOperator !== '') {
-            operand2.textContent += textNum + ' / ';
             rNum = Number(textNum);
             result = operate(chosenOperator,dNum,rNum);
             chosenOperator = 'divide';
             operand2.textContent = result;
+            operand2.textContent += ' / ';
             dNum = result;
             operand1.textContent = '';
         } else if (chosenOperator === '') {
