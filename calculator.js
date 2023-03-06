@@ -7,6 +7,7 @@ let textNum = '';
 let chosenOperator = '';
 let stop = null;
 const numberContainer = document.querySelector('.number-container');
+const disableButton = new AbortController(); // disable the effect of listener for digits only
 // Operations 
 const add = (a,b) => a + b;
 const subtract = (a,b) => a - b;
@@ -52,31 +53,66 @@ function delayedMessage() { // clearing 2 seconds of huh?
 function deleteChar(str) {
     return operand1.textContent = str.slice(0, -1);
 }
+function eNotation(result) { // if numbers displaying is more than 9 digits 
+    return `1e+${Number(String(result).length)}`;
+}
 // Event listener on container rather than per button
 // Event delegation!
 numberContainer.addEventListener('click', (e) => {
     // Displaying the result
     const target = e.target;
-    if (target.matches('#zero')) {
-        textNum = display(0);
+    if (eNotation(result) === operand1.textContents) {
+        clear();
+    } if (target.matches('#zero')) {
+        if (operand1.textContent.length < 12) {
+            textNum = display(0);
+        }
+        disableButton.abort;
     } if (target.matches('#one')) {
-        textNum = display(1);
+        if (operand1.textContent.length < 12) {
+            textNum = display(1);
+        }
+        disableButton.abort;
     } if (target.matches('#two')) {
-        textNum = display(2);
+        if (operand1.textContent.length < 12) {
+            textNum = display(2);
+        }
+        disableButton.abort;
     } if (target.matches('#three')) {
-        textNum = display(3);
+        if (operand1.textContent.length < 12) {
+            textNum = display(3);
+        }
+        disableButton.abort;
     } if (target.matches('#four')) {
-        textNum = display(4);
+        if (operand1.textContent.length < 12) {
+            textNum = display(4);
+        }
+        disableButton.abort;
     } if (target.matches('#five')) {
-        textNum = display(5);
+        if (operand1.textContent.length < 12) {
+            textNum = display(5);
+        }
+        disableButton.abort;
     } if (target.matches('#six')) {
-        textNum = display(6);
+        if (operand1.textContent.length < 12) {
+            textNum = display(6);
+        }
+        disableButton.abort;
     } if (target.matches('#seven')) {
-        textNum = display(7);
+        if (operand1.textContent.length < 12) {
+            textNum = display(7);
+        }
+        disableButton.abort;
     } if (target.matches('#eight')) {
-        textNum = display(8);
+        if (operand1.textContent.length < 12) {
+            textNum = display(8);
+        }
+        disableButton.abort;
     } if (target.matches('#nine')) {
-        textNum = display(9);
+        if (operand1.textContent.length < 12) {
+            textNum = display(9);
+        }
+        disableButton.abort;
     } if (target.matches('#clear')) {
         clear();
     } if (target.matches('#delete')) {
@@ -85,19 +121,20 @@ numberContainer.addEventListener('click', (e) => {
     } if (target.matches('#dot')) {
         textNum = display('.');
     } if (target.matches('#equals')) {
-        console.log('b',chosenOperator,dNum,rNum,result);
         rNum = Number(textNum);
         if (rNum === 0){
-            operand1.textContent = `huh?`;
-            stop = setInterval(delayedMessage,2000); 
+            operand1.textContent = `huh?!?!?!`;
+            stop = setInterval(delayedMessage,2000);
         }
         if (dNum && chosenOperator && rNum) {
             result = roundUp(operate(chosenOperator,dNum,rNum));
             operand2.textContent += textNum; // how to not add the second time?
             operand1.textContent = '';
             display(result);
+            if (operand1.textContent.length > 12) {
+                operand1.textContent = eNotation(result);
+            }
         }
-        console.log('a',chosenOperator,dNum,rNum,result);
     } if (target.matches('#add')) {
         // should not evaluate more than a single pair of numbers how??? check if operator is not empty??
         if (chosenOperator !== '') {
@@ -174,5 +211,5 @@ numberContainer.addEventListener('click', (e) => {
             operand2.textContent += textNum + ' % ';
             operand1.textContent = '';
         }
-    }      
+    }
 });
