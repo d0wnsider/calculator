@@ -46,6 +46,9 @@ function delayedMessage() { // clearing 2 seconds of huh?
     operand1.textContent = '';
     clearInterval(stop);
 }
+function deleteChar(str) {
+    return operand1.textContent = str.slice(0, -1);
+}
 // Event listener on container rather than per button
 // Event delegation!
 numberContainer.addEventListener('click', (e) => {
@@ -73,6 +76,9 @@ numberContainer.addEventListener('click', (e) => {
         textNum = display(9);
     } if (target.matches('#clear')) {
         clear();
+    } if (target.matches('#delete')) {
+        textNum = deleteChar(textNum);
+        console.log(textNum);
     } if (target.matches('#dot')) {
         textNum = display('.');
     } if (target.matches('#equals')) {
