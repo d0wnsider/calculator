@@ -61,7 +61,7 @@ function eNotation(result) { // if numbers displaying is more than 9 digits
 numberContainer.addEventListener('click', (e) => {
     // Displaying the result
     const target = e.target;
-    if (eNotation(result) === operand1.textContents) {
+    if (eNotation(result) === operand1.textContent) {
         clear();
     } if (target.matches('#zero')) {
         if (operand1.textContent.length < 12) {
@@ -119,7 +119,10 @@ numberContainer.addEventListener('click', (e) => {
         textNum = deleteChar(textNum);
         console.log(textNum);
     } if (target.matches('#dot')) {
-        textNum = display('.');
+        if (!operand1.textContent.includes('.')) {
+            textNum = display('.'); 
+        }
+        disableButton.abort;
     } if (target.matches('#equals')) {
         rNum = Number(textNum);
         if (rNum === 0){
