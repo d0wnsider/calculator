@@ -12,5 +12,5 @@
 - [x] Backspace/Del button for deleting previous number
 
 *Optional*
-- [ ] Modulo operation
+- [x] Modulo operation
 - [ ] Keyboard support
