@@ -61,7 +61,7 @@ function eNotation(result) { // if numbers displaying is more than 9 digits
 numberContainer.addEventListener('click', (e) => {
     // Displaying the result
     const target = e.target;
-    if (eNotation(result) === operand1.textContent) {
+    if (operand1.textContent.includes('e') || operand2.textContent.includes('e')) {
         clear();
     } if (target.matches('#zero')) {
         if (operand1.textContent.length < 12) {
