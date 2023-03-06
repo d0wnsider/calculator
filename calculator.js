@@ -12,6 +12,7 @@ const add = (a,b) => a + b;
 const subtract = (a,b) => a - b;
 const multiply = (a,b) => a * b;
 const divide = (a,b) => a / b;
+const modulo = (a,b) => a % b;
 // Calculation
 function operate(operator,a,b) {
     if (operator === 'add') {
@@ -22,6 +23,8 @@ function operate(operator,a,b) {
         return multiply(a,b);
     }if (operator === 'divide') {
         return divide(a,b);
+    }if (operator === 'modulo') {
+        return modulo(a,b);
     }
 }
 function display(num) {
@@ -156,5 +159,20 @@ numberContainer.addEventListener('click', (e) => {
             operand2.textContent += textNum + ' / ';
             operand1.textContent = '';
         }
-    }   
+    } if (target.matches('#modulo')) {
+        if (chosenOperator !== '') {
+            rNum = Number(textNum);
+            result = roundUp(operate(chosenOperator,dNum,rNum));
+            chosenOperator = 'modulo';
+            operand2.textContent = result;
+            operand2.textContent += ' % ';
+            dNum = result;
+            operand1.textContent = '';
+        } else if (chosenOperator === '') {
+            chosenOperator = 'modulo';
+            dNum = Number(textNum);
+            operand2.textContent += textNum + ' % ';
+            operand1.textContent = '';
+        }
+    }      
 });
