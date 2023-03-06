@@ -1,7 +1,7 @@
-# Calculator
-**The Odin Project Curriculum**
+<h1 align="center">Calculator</h1>
+<p align="center"><strong>The Odin Project Curriculum</strong></p>
 
-## [Live Demo link](https://d0wnsider.github.io/calculator)
+<h2 align="center"><a href="https://d0wnsider.github.io/calculator">Live Demo Link</a></h2>
 
 ## To-Do
 - [x] Make simple a simple calculation, 2 numbers with 1 equals key operation
@@ -13,4 +13,5 @@
 
 *Optional*
 - [x] Modulo operation
+- [x] e notation
 - [ ] Keyboard support
