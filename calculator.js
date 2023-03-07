@@ -64,9 +64,9 @@ numberContainer.addEventListener('click', (e) => {
     if (operand1.textContent.includes('e') || operand2.textContent.includes('e')) {
         clear();
     } if (target.matches('#zero')) {
-        if (operand1.textContent.length < 12) {
+        if (operand1.textContent.length < 12 && operand1.textContent.length > 0) {
             textNum = display(0);
-        }
+        } 
         disableButton.abort;
     } if (target.matches('#one')) {
         if (operand1.textContent.length < 12) {
@@ -129,7 +129,8 @@ numberContainer.addEventListener('click', (e) => {
             operand1.textContent = `huh?!?!?!`;
             stop = setInterval(delayedMessage,2000);
         }
-        if (dNum && chosenOperator && rNum) {
+        console.log(dNum,chosenOperator,rNum)
+        if (chosenOperator && rNum) {
             result = roundUp(operate(chosenOperator,dNum,rNum));
             operand2.textContent += textNum; // how to not add the second time?
             operand1.textContent = '';
