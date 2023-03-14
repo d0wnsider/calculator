@@ -1,17 +1,18 @@
 <h1 align="center">Calculator</h1>
-<p align="center"><strong>The Odin Project Curriculum</strong></p>
+<p align="center"><a href="https://d0wnsider.github.io/calculator">Live Demo Link</a></p>
 
-<h2 align="center"><a href="https://d0wnsider.github.io/calculator">Live Demo Link</a></h2>
+* Make simple a simple calculation, 2 numbers with 1 equals key operation
+* Clear button
+* Error Message when divided by 0
+* Simple operation with decimal point
+* Chaining operations
+* Backspace/Del button for deleting previous number
+* Modulo operation
+* e notation
 
-## To-Do
-- [x] Make simple a simple calculation, 2 numbers with 1 equals key operation
-- [x] Clear button
-- [x] Error Message when divided by 0
-- [x] Simple operation with decimal point
-- [x] Chaining operations
-- [x] Backspace/Del button for deleting previous number
+## Tools
+* HTML
+* CSS
+* JavaScript
 
-*Optional*
-- [x] Modulo operation
-- [x] e notation
-- [ ] Keyboard support
+<p><a href="https://www.theodinproject.com/lessons/foundations-calculator">The Odin Project</a></p>
