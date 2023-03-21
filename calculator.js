@@ -125,11 +125,10 @@ numberContainer.addEventListener('click', (e) => {
         disableButton.abort;
     } if (target.matches('#equals')) {
         rNum = Number(textNum);
-        if (rNum === 0){
+        if (chosenOperator === 'divide' && rNum === 0){
             operand1.textContent = `huh?!?!?!`;
             stop = setInterval(delayedMessage,2000);
         }
-        console.log(dNum,chosenOperator,rNum)
         if (chosenOperator && rNum) {
             result = roundUp(operate(chosenOperator,dNum,rNum));
             operand2.textContent += textNum; // how to not add the second time?
