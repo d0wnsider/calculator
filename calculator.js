@@ -64,7 +64,7 @@ numberContainer.addEventListener('click', (e) => {
     if (operand1.textContent.includes('e') || operand2.textContent.includes('e')) {
         clear();
     } if (target.matches('#zero')) {
-        if (operand1.textContent.length < 12 && operand1.textContent.length > 0) {
+        if (operand1.textContent.length < 12) {
             textNum = display(0);
         } 
         disableButton.abort;
