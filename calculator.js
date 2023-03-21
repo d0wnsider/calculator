@@ -46,7 +46,7 @@ function clear() {
 function roundUp (num) {
     return Math.round(num * 10) / 10;
 }
-function delayedMessage() { // clearing 2 seconds of huh?
+function delayedMessage() { // clearing 1 seconds of huh?
     operand1.textContent = '';
     clearInterval(stop);
 }
@@ -127,7 +127,7 @@ numberContainer.addEventListener('click', (e) => {
         rNum = Number(textNum);
         if (chosenOperator === 'divide' && rNum === 0){
             operand1.textContent = `huh?!?!?!`;
-            stop = setInterval(delayedMessage,2000);
+            stop = setInterval(delayedMessage,1000);
         }
         if (chosenOperator && rNum) {
             result = roundUp(operate(chosenOperator,dNum,rNum));
