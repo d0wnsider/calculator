@@ -129,7 +129,7 @@ numberContainer.addEventListener('click', (e) => {
             operand1.textContent = `huh?!?!?!`;
             stop = setInterval(delayedMessage,1000);
         }
-        if (chosenOperator && rNum) {
+        if (!(chosenOperator === 'divide' && rNum === 0)) {
             result = roundUp(operate(chosenOperator,dNum,rNum));
             operand2.textContent += textNum; // how to not add the second time?
             operand1.textContent = '';
@@ -138,6 +138,7 @@ numberContainer.addEventListener('click', (e) => {
                 operand1.textContent = eNotation(result);
             }
         }
+        console.log(textNum, rNum, result)
     } if (target.matches('#add')) {
         // should not evaluate more than a single pair of numbers how??? check if operator is not empty??
         if (chosenOperator !== '') {
